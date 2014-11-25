@@ -21,17 +21,16 @@ Original inspiration for writing this tool was by this [gist]
 ### Download CSV
 ![Download CSV](imgs/screen_docs_download.png)  
 
+## Gems
+1, Using [nokogiri]
+<pre>gem install nokogiri</pre>
+
 ## Usage
 <pre> ruby conv.rb xml strings.xml >> strings.csv</pre>
 <pre> ruby conv.rb csv strings.csv Italian >> strings.xml</pre>
 
 ## Version
 0.1b - Initial commit
-
-## Gems
-1, Using [nokogiri]
-install it by 
-<pre>gem install nokogiri</pre>
 
 [gist]:https://gist.github.com/takuya-i/3117040
 [nokogiri]:http://www.nokogiri.org/
