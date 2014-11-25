@@ -15,10 +15,14 @@ Original inspiration for writing this tool was by this [gist]
 	- Profit!
 
 ## Google Docs
+
+### Importing:
+![Importing](imgs/screen_docs_import.png)  
+
 ### Translating:
 ![Translating](imgs/screen_docs.png)  
 
-### Download CSV
+### Downloading CSV
 ![Download CSV](imgs/screen_docs_download.png)  
 
 ## Gems
