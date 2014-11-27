@@ -11,6 +11,12 @@ if $language == nil
   exit
 end
 
+
+ def self.escape_characters_in_string(string)
+    pattern = /(\'|\")/
+    string.gsub(pattern){|match|"\\"  + match}
+  end
+
 def csvToXML(fileXML)
 
     results = File.read(fileXML)
@@ -19,12 +25,14 @@ def csvToXML(fileXML)
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.resources{
          csv_table.entries.each do |csv_row|
-          	xml.string "string", csv_row[$language], :name => csv_row["name"] 
+          	xml.string "string", escape_characters_in_string(csv_row[$language]), :name => csv_row["name"] 
           end
       }
     end
     puts CGI::unescapeHTML(builder.to_xml)
 end
+
+
 
 if arg == "xml"
   str = ""
