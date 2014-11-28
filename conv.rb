@@ -2,9 +2,8 @@ require "nokogiri"
 require "csv"
 require "cgi"
 
-arg = ARGV[0]
-file =  File.open(ARGV[1])
-$language = ARGV[2]
+file =  File.open(ARGV[0])
+$language = ARGV[1]
 
 if $language == nil
   puts "Specify language!"
@@ -18,10 +17,8 @@ end
   end
 
 def csvToXML(fileXML)
-
     results = File.read(fileXML)
     csv_table = CSV.parse(results, :headers => true)
-    
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.resources{
          csv_table.entries.each do |csv_row|
@@ -32,19 +29,23 @@ def csvToXML(fileXML)
     puts CGI::unescapeHTML(builder.to_xml)
 end
 
-
-
-if arg == "xml"
+def xmlToCSV(fileXML)
   str = ""
   xml_doc = Nokogiri::XML(file)
   array = xml_doc.xpath("//string")
   str.concat("\"name\", \"#{$language}\"\n")
-	array.each do |xpath_node|
-  	str.concat( "\"#{xpath_node.attribute('name')}\", \"#{xpath_node.text}\"\n")
+  array.each do |xpath_node|
+  str.concat( "\"#{xpath_node.attribute('name')}\", \"#{xpath_node.text}\"\n")
   end
   puts str
 end
 
-if arg == "csv"
+
+
+if File.extname(file).downcase == ".xml"
+  xmlToCSV(file)
+end
+
+if File.extname(file).downcase == ".csv"
 	csvToXML(file)
 end

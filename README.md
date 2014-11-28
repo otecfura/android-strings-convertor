@@ -30,8 +30,8 @@ Original inspiration for writing this tool was by this [gist]
 <pre>gem install nokogiri</pre>
 
 ## Usage
-<pre> ruby conv.rb xml strings.xml language >> strings.csv</pre>
-<pre> ruby conv.rb csv strings.csv language >> strings.xml</pre>
+<pre> ruby conv.rb strings.xml language >> strings.csv</pre>
+<pre> ruby conv.rb strings.csv language >> strings.xml</pre>
 
 ## Version
 0.1b - Initial commit
