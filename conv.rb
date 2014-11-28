@@ -10,11 +10,10 @@ if $language == nil
   exit
 end
 
-
- def self.escape_characters_in_string(string)
-    pattern = /(\'|\")/
-    string.gsub(pattern){|match|"\\"  + match}
-  end
+def self.escape_characters_in_string(string)
+  pattern = /(\'|\")/
+  string.gsub(pattern){|match|"\\"  + match}
+end
 
 def csvToXML(fileXML)
     results = File.read(fileXML)
@@ -39,8 +38,6 @@ def xmlToCSV(fileXML)
   end
   puts str
 end
-
-
 
 if File.extname(file).downcase == ".xml"
   xmlToCSV(file)
