@@ -30,7 +30,7 @@ end
 
 def xmlToCSV(fileXML)
   str = ""
-  xml_doc = Nokogiri::XML(file)
+  xml_doc = Nokogiri::XML(fileXML)
   array = xml_doc.xpath("//string")
   str.concat("\"name\", \"#{$language}\"\n")
   array.each do |xpath_node|
